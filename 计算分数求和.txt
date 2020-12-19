@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+	int i1 = 1;
+	float i2 = 1;//  由于取余只能用整形  添加i2作为增加量  i1作为循环变量
+	float j = 0;
+	float sum = 0;
+	for (i1 = 1; i1 <= 100; i1++,i2++)
+	{
+		if (i1 % 2 == 0)
+		{
+			j= -1 / i2;
+		}
+		else
+		{
+			j= 1 / i2;
+		}
+		sum+= j;
+		printf("%f  ", sum);
+	
+	}
+	return 0;
+}
