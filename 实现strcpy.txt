@@ -1,0 +1,28 @@
+
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
+
+char* my_strcpy(char* dest, const char*src)
+{
+	char*ret = dest;
+	assert(dest != NULL);
+	assert(src != NULL);
+	while (*dest++ = *src++)//赋值
+	{
+		;
+	}
+	return ret;
+}
+
+int main()
+{
+	char arr[10] = "xxxxxx";
+	char arr2[] = { 'a', 'b', 'c' ,0 };
+	char*p=strcpy(arr, arr2);
+
+
+	printf("%s\n", p);
+
+	return 0;
+}

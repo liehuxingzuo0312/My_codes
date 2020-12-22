@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
+
+char* my_strcat(char*dest, const char*src)
+{
+	char *ret = dest;
+	assert(dest);
+	assert(src);
+	// 找到目标中的'\0'
+	while (*dest)             //找到后开始追加
+	{
+		dest++;
+	}
+	// 追加
+	while (*dest++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+int main()
+{
+	char arr[20] = "hello";
+	printf("%s\n", my_strcat(arr, " bit"));
+
+	return 0;
+}

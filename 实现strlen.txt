@@ -1,0 +1,17 @@
+int my_strlen(const char* str)
+{
+	int count = 0;
+	while (*str != '\0')
+	{
+		str++;
+		count++;
+	}
+	return count;
+}
+
+int main()
+{
+	char str[] = "qwer\0";
+	printf("%d\n", my_strlen(str));
+	return 0;
+}

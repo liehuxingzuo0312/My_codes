@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+#include <assert.h>
+
+
+char* my_strstr(const char*str1, const char* str2)//目标  、  源
+{
+	assert(str1 && str2);
+	char* cp = str1;  // cp为可以随便动的str1
+	if (*str2 == '\0')    //源为空返回目标
+		return str1;
+
+	while (*cp)      //输入目标存在
+	{
+		char* s1 = cp;
+		char* s2 = str2;
+		while (*s1 && *s2 && *s1 == *s2)   //寻找相同字符下s1与s2吻合的情况
+		{
+			s1++;
+			s2++;                        //寻找到s1最后一位
+		}
+		if (*s2 == '\0')                //到了s2最后的\0时，完成寻找
+			return cp;
+
+		cp++;
+	}
+	return NULL;           
+}
+int main()
+{
+	char * arr1 = "abbbcdef";
+	char * arr2 = "bbc";
+	char*ret = my_strstr(arr1, arr2);
+	if (ret == NULL)
+		printf("找不到\n");
+	else
+		printf("%s\n", ret);
+
+	return 0;
+}
