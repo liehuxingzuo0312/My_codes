@@ -1,0 +1,13 @@
+#include<stdio.h>
+#define CHANGE(n)(((n&0x55555555)<<1) | ((n&0xaaaaaaaa)>>1))
+
+int main()
+{
+	int a ;
+	scanf("%d",&a);
+
+	printf("%d\n", CHANGE(a));
+
+
+	return 0;
+}
