@@ -1,0 +1,31 @@
+
+#include<stdio.h>
+void print(int n)
+{
+    int x = 0;
+    for (x = 1; x <= n; x++)
+    {
+        int y = 0;
+        if (n <= 9)
+        {
+            for (y = 1; y <= x; y++)
+            {
+                int z = 0;
+                z = x * y;
+                printf("%d*%d=%2d ", y, x, z);
+            }
+            printf("\n");
+        }
+
+    }
+}
+
+int main()
+{
+    int n = 0;
+    printf("请输入9以内的行数：");
+    scanf("%d", &n);
+    print(n);
+    return 0;
+
+}

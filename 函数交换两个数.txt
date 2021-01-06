@@ -1,0 +1,21 @@
+#include<stdio.h>
+
+
+void Changenum(int* x, int* y) 
+{
+    int tmp = 0;
+    tmp = *x;
+    *x = *y;
+    *y = tmp;
+}
+
+int main()
+{
+    int* a = 0;
+    int* b = 0;
+    printf("输入两个数a,b:\n");
+    scanf("%d %d", &a, &b);
+    Changenum(&a, &b);
+    printf("a=%d\nb=%d\n", a, b);
+    return 0;
+}
