@@ -1,0 +1,89 @@
+//#include<iostream>
+//using namespace std;
+//
+//int TestFunc(int a, int b)
+//{
+//	return a + b;
+//}
+//double TestFunc(int c)
+//{
+//	return c;
+//}
+//
+//
+//
+//
+//void main()
+//{
+//	int a = 10;
+//	int& b = a;//空引用
+//}
+
+//#include<iostream>
+//using namespace std;
+//
+//class Time
+//{
+//   public:
+//	Time()
+//	{
+//		cout << "Time()" << endl;
+//        _hour = 0;
+//        _minute = 0;
+//        _second = 0;
+// }
+//private:
+//	int _hour;
+//	int _minute;
+//	int _second;
+//};
+//class Date
+//{
+//private:
+//	// 基本类型(内置类型)
+//	int _year;
+//	int _month;
+//	int _day;
+//	// 自定义类型
+//	Time _t;
+//};
+//int main()
+//{
+//	Date d;
+//	return 0;
+//}
+
+
+#include<iostream>
+#include<assert.h>
+using namespace std;
+
+typedef int DataType;
+class SeqList
+{
+public:
+	SeqList(int capacity = 10)
+	{
+		_pData = (DataType*)malloc(capacity * sizeof(DataType));
+		assert(_pData);
+
+		_size = 0;
+		_capacity = capacity;
+	}
+
+	~SeqList()
+	{
+		if (_pData)
+		{
+			free(_pData); // 释放堆上的空间
+			_pData = NULL; // 将指针置为空
+			_capacity = 0;
+			_size = 0;
+		}
+	}
+
+private:
+	int* _pData;
+	size_t _size;
+	size_t _capacity;
+};
