@@ -1,0 +1,75 @@
+#include <iostream>
+
+using namespace std;
+
+ 
+
+int months_avg[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+int months_leap[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+ 
+
+#define isLeapYear(y) ((year%4==0 && year%100!=0)||year%400 ==0)
+
+//leapyear (y) = ((year&4 == 0 && year%100!=0 || year%400 ==0)
+
+ 
+
+int main()
+
+{
+
+  int m,year,month,day,days;
+
+  cin >> m; //输入m
+
+  while (m>0) 
+
+  {
+
+    cin >> year >> month >> day >> days;
+
+    int *months = isLeapYear(year)?months_leap:months_avg;
+
+    while (days > 0) {
+
+      if (day + days <= months[month-1] ) {
+
+        day += days;      
+
+        days -= days;
+
+      }
+
+      else {
+
+        days -= (months[month-1] - day + 1);
+
+        day = 1;
+
+        month +=1;
+
+        if (month>12) {
+
+          year++;
+
+          months = isLeapYear(year)?months_leap:months_avg;
+
+          month = 1;
+
+        }
+
+      }
+
+    }  
+
+    printf("%04d-%02d-%02d\n", year,month,day);
+
+    m--;
+
+  }
+
+  return 0;
+
+}
