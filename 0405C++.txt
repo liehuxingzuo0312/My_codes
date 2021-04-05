@@ -1,0 +1,46 @@
+
+#include<iostream>
+#include<list>
+using namespace std;
+
+//class list
+//{
+//
+//};
+
+void main()
+{
+	int ar[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	list<int> list1;
+	list<int> list2(10);
+	list<int> list3(10, 5);  //有十个单位，里面全是5
+	list<int> list4(ar, ar + 10);
+	list<int> list5(list4);  //拷贝构造
+	list<int> list6(list5.begin(), list5.end());  //设置起止单位   (1,2,3,...,10)
+
+
+	for (auto& e : list4)
+		cout << e << "";
+	cout << endl;
+
+
+	list<int>::iterator it = list1.begin();
+	//auto it = list1.begin();    等同于以下情况,使用迭代器类型
+	while (it != list1.end())
+	{
+		cout << *it << " ";
+		++it;
+	}
+	cout << endl;
+
+	list<int>::reverse_iterator rit = list1.rbegin();
+	while (rit != list1.rend())
+	{
+		cout << *rit << " ";
+		++rit;
+
+
+	}
+	cout << endl;
+
+}
