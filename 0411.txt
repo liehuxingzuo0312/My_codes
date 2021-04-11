@@ -1,0 +1,48 @@
+
+﻿int main()
+
+{
+
+int ar[] = { 0,1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+int n = sizeof(ar) / sizeof(int);
+
+list<int> mylist(ar, ar+n);
+
+list<int>::iterator pos = find(mylist.begin(), mylist.end(), 5);
+
+reverse(mylist.begin(), pos);
+
+reverse(pos, mylist.end());
+
+list<int>::const_reverse_iterator crit = mylist.crbegin();
+
+while(crit != mylist.crend())
+
+{
+
+cout<<*crit<<" ";
+
+++crit;
+
+}
+
+cout<<endl;
+
+}
+
+
+分析:list<int>::iterator pos = find(mylist.begin(), mylist.end(), 5); //找到5的位置
+
+reverse(mylist.begin(), pos);//逆置0 1 2 3 4 为 4 3 2 1 0
+
+reverse(pos, mylist.end()); //逆置5 6 7 8 9 为 9 8 7 6 5
+
+逆置完成之后其数据为：4 3 2 1 0 9 8 7 6 5
+
+list<int>::const_reverse_iterator crit = mylist.crbegin(); //反向迭代器进行反向访问
+
+while(crit != mylist.crend()){}
+
+所以答案为:5 6 7 8 9 0 1 2 3 4
+
